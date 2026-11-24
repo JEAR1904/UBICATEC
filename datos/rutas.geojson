@@ -1,0 +1,15 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "id": "r-principal-f12", "origen": "principal", "destino": "aula-f12", "indicaciones": "Entra por la puerta principal, sigue derecho por el andador y gira a la izquierda en el Edificio F. Sube a planta alta. (Ejemplo)" },
+      "geometry": { "type": "LineString", "coordinates": [[-107.3987, 24.7905], [-107.3987, 24.7901], [-107.39865, 24.7894], [-107.3986, 24.7891]] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "r-principal-cc1", "origen": "principal", "destino": "lab-computo", "indicaciones": "Desde la entrada principal camina hacia la derecha hasta el Centro de Cómputo. (Ejemplo)" },
+      "geometry": { "type": "LineString", "coordinates": [[-107.3987, 24.7905], [-107.3982, 24.7901], [-107.39785, 24.7897]] }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+[
+  { "id": "principal", "nombre": "Entrada principal (ejemplo)", "lat": 24.7905, "lng": -107.3987 },
+  { "id": "estacionamiento", "nombre": "Estacionamiento (ejemplo)", "lat": 24.7893, "lng": -107.3995 }
+]

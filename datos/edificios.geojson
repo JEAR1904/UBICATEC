@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "id": "edif-a", "clave": "A", "nombre": "Edificio A (ejemplo)", "descripcion": "Dirección y servicios escolares. Coordenadas aproximadas.", "foto": null },
+      "geometry": { "type": "Polygon", "coordinates": [[[-107.3990, 24.7900], [-107.3984, 24.7900], [-107.3984, 24.7896], [-107.3990, 24.7896], [-107.3990, 24.7900]]] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "edif-cc", "clave": "CC", "nombre": "Centro de Cómputo (ejemplo)", "descripcion": "Laboratorios de cómputo. Coordenadas aproximadas.", "foto": null },
+      "geometry": { "type": "Polygon", "coordinates": [[[-107.3981, 24.7899], [-107.3976, 24.7899], [-107.3976, 24.7895], [-107.3981, 24.7895], [-107.3981, 24.7899]]] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "edif-f", "clave": "F", "nombre": "Edificio F (ejemplo)", "descripcion": "Aulas. Coordenadas aproximadas.", "foto": null },
+      "geometry": { "type": "Polygon", "coordinates": [[[-107.3989, 24.7893], [-107.3983, 24.7893], [-107.3983, 24.7889], [-107.3989, 24.7889], [-107.3989, 24.7893]]] }
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+:root {
+  --guinda: #7a1f3d;
+  --guinda-claro: #f6e9ee;
+  --texto: #1f2328;
+  --gris: #6b7280;
+  --borde: #e5e7eb;
+  --fondo: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--texto);
+  background: var(--fondo);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: var(--guinda);
+  color: #fff;
+}
+.encabezado h1 { margin: 0; font-size: 1.25rem; }
+
+.pestanas { display: flex; gap: 0.25rem; }
+.pestana {
+  min-height: 44px; /* RNF-06: botones para dedo */
+  padding: 0 1rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+.pestana.activa { background: rgba(255, 255, 255, 0.2); }
+
+.contenido { flex: 1; display: flex; min-height: 0; }
+
+.panel {
+  width: 360px;
+  padding: 1rem;
+  overflow-y: auto;
+  border-right: 1px solid var(--borde);
+}
+
+.mapa { flex: 1; }
+
+input[type='search'] {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 0.75rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  font: inherit;
+}
+
+.filtros { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0; }
+.filtro {
+  min-height: 36px;
+  padding: 0 0.75rem;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.filtro.activo { background: var(--guinda); border-color: var(--guinda); color: #fff; }
+
+.resultados { list-style: none; margin: 0; padding: 0; }
+.resultados li {
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--borde);
+  cursor: pointer;
+}
+.resultados li:hover { background: var(--guinda-claro); }
+.resultados small { display: block; color: var(--gris); }
+
+.ficha { margin-top: 1rem; padding: 1rem; border-radius: 12px; background: var(--guinda-claro); }
+.ficha h2 { margin: 0 0 0.25rem; font-size: 1.1rem; }
+.ficha img { width: 100%; border-radius: 8px; margin: 0.5rem 0; }
+.ficha button {
+  min-height: 44px;
+  padding: 0 1rem;
+  margin-top: 0.5rem;
+  border: 0;
+  border-radius: 8px;
+  background: var(--guinda);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+.ficha select { min-height: 44px; font: inherit; width: 100%; margin-top: 0.5rem; }
+
+/* RF-08: celular y tableta. El panel pasa abajo del mapa. */
+@media (max-width: 768px) {
+  .contenido { flex-direction: column-reverse; }
+  .panel { width: 100%; max-height: 45vh; border-right: 0; border-top: 1px solid var(--borde); }
+}
+
+.etiqueta {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  font-weight: 600;
+  color: var(--guinda);
+}

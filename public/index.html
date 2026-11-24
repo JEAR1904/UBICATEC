@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UbicaTec · Mapa del Tec de Culiacán</title>
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <header class="encabezado">
+      <h1>UbicaTec</h1>
+      <nav class="pestanas">
+        <button class="pestana activa" data-vista="lugares">Lugares</button>
+        <button class="pestana" data-vista="docentes">Docentes</button>
+      </nav>
+    </header>
+
+    <main class="contenido">
+      <aside class="panel">
+        <!-- Vista: lugares (RF-03, RF-04) -->
+        <section id="vista-lugares">
+          <input id="buscar-lugar" type="search" placeholder="Busca un aula, laboratorio u oficina…" autocomplete="off" />
+          <div id="filtros" class="filtros">
+            <button class="filtro activo" data-categoria="">Todos</button>
+            <button class="filtro" data-categoria="aula">Aulas</button>
+            <button class="filtro" data-categoria="laboratorio">Laboratorios</button>
+            <button class="filtro" data-categoria="departamento">Departamentos</button>
+            <button class="filtro" data-categoria="oficina">Oficinas</button>
+          </div>
+          <ul id="resultados" class="resultados"></ul>
+        </section>
+
+        <!-- Vista: docentes (RF-07) -->
+        <section id="vista-docentes" hidden>
+          <input id="buscar-docente" type="search" placeholder="Nombre del docente o departamento…" autocomplete="off" />
+          <ul id="resultados-docentes" class="resultados"></ul>
+        </section>
+
+        <!-- Ficha del lugar (RF-05, RF-06) -->
+        <section id="ficha" class="ficha" hidden></section>
+      </aside>
+
+      <div id="mapa" class="mapa"></div>
+    </main>
+
+    <script src="vendor/leaflet/leaflet.js"></script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

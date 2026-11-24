@@ -1,0 +1,21 @@
+{
+  "name": "ubicatec",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Prototipo de mapa interactivo del Instituto Tecnológico de Culiacán",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "db:crear": "node db/crear-db.js",
+    "dev": "node --watch server/index.js",
+    "start": "node server/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "express": "^4.21.2",
+    "leaflet": "^1.9.4"
+  }
+}

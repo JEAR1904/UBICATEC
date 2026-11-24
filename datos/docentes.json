@@ -1,0 +1,5 @@
+[
+  { "id": "doc-001", "nombre": "Docente de Ejemplo Uno", "departamento": "Sistemas y Computación", "espacio": "depto-sistemas", "autorizado": true, "fechaAutorizacion": "2026-11-20", "horario": [{ "dia": "lunes", "inicio": "10:00", "fin": "12:00" }, { "dia": "miércoles", "inicio": "10:00", "fin": "12:00" }] },
+  { "id": "doc-002", "nombre": "Docente de Ejemplo Dos", "departamento": "Sistemas y Computación", "espacio": "depto-sistemas", "autorizado": true, "fechaAutorizacion": "2026-11-20", "horario": [{ "dia": "martes", "inicio": "16:00", "fin": "18:00" }] },
+  { "id": "doc-003", "nombre": "Docente Sin Autorización", "departamento": "Ciencias Básicas", "espacio": "depto-sistemas", "autorizado": false, "fechaAutorizacion": null, "horario": [] }
+]

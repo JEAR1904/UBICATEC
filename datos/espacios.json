@@ -1,0 +1,7 @@
+[
+  { "id": "serv-escolares", "clave": "A-01", "nombre": "Servicios Escolares", "categoria": "oficina", "edificio": "edif-a", "planta": "Planta baja", "lat": 24.78985, "lng": -107.39885, "descripcion": "Trámites, constancias y credenciales. (Ejemplo)", "foto": null, "video": null },
+  { "id": "depto-sistemas", "clave": "A-12", "nombre": "Departamento de Sistemas y Computación", "categoria": "departamento", "edificio": "edif-a", "planta": "Planta alta", "lat": 24.78975, "lng": -107.39865, "descripcion": "Jefatura y cubículos de docentes. (Ejemplo)", "foto": null, "video": null },
+  { "id": "lab-computo", "clave": "CC-1", "nombre": "Centro de Cómputo", "categoria": "laboratorio", "edificio": "edif-cc", "planta": "Planta baja", "lat": 24.7897, "lng": -107.39785, "descripcion": "Laboratorio general de cómputo. (Ejemplo)", "foto": null, "video": null },
+  { "id": "aula-f12", "clave": "F-12", "nombre": "Aula F-12", "categoria": "aula", "edificio": "edif-f", "planta": "Planta alta", "lat": 24.7891, "lng": -107.3986, "descripcion": "Aula de clases. (Ejemplo)", "foto": null, "video": null },
+  { "id": "aula-f03", "clave": "F-03", "nombre": "Aula F-03", "categoria": "aula", "edificio": "edif-f", "planta": "Planta baja", "lat": 24.78915, "lng": -107.39875, "descripcion": "Aula de clases. (Ejemplo)", "foto": null, "video": null }
+]

@@ -1,0 +1,308 @@
+[
+  {
+    "id": "daniel",
+    "numero_control": "22170750",
+    "nombre": "Jesús Daniel Ontiveros Sánchez",
+    "carrera": "Ingeniería en Sistemas Computacionales",
+    "semestre": 9,
+    "horario": [
+      {
+        "materia": "Administración de Redes",
+        "aula": "CCD5",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves"
+        ],
+        "inicio": "09:00",
+        "fin": "10:00"
+      },
+      {
+        "materia": "Tópicos de IA",
+        "aula": "EB06",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves",
+          "viernes"
+        ],
+        "inicio": "11:00",
+        "fin": "12:00"
+      },
+      {
+        "materia": "Taller de Investigación II",
+        "aula": "EB07",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves"
+        ],
+        "inicio": "12:00",
+        "fin": "13:00"
+      },
+      {
+        "materia": "Gestión de Proyectos de Software",
+        "aula": "EB02",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves"
+        ],
+        "inicio": "13:00",
+        "fin": "14:00"
+      },
+      {
+        "materia": "Gestión de Proyectos de Software",
+        "aula": "EB07",
+        "dias": [
+          "viernes"
+        ],
+        "inicio": "13:00",
+        "fin": "15:00"
+      },
+      {
+        "materia": "Gestión de Operaciones de TI",
+        "aula": "CC01",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves",
+          "viernes"
+        ],
+        "inicio": "18:00",
+        "fin": "19:00"
+      }
+    ]
+  },
+  {
+    "id": "joel",
+    "numero_control": "22170641",
+    "nombre": "Joel Félix Rubio",
+    "carrera": "Ingeniería en Sistemas Computacionales",
+    "semestre": 9,
+    "horario": [
+      {
+        "materia": "Sistemas Programables",
+        "aula": "UA08",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves"
+        ],
+        "inicio": "08:00",
+        "fin": "09:00"
+      },
+      {
+        "materia": "Administración de Redes",
+        "aula": "CCD5",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves"
+        ],
+        "inicio": "09:00",
+        "fin": "10:00"
+      },
+      {
+        "materia": "Taller de Investigación I",
+        "aula": "EB07",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves"
+        ],
+        "inicio": "10:00",
+        "fin": "11:00"
+      },
+      {
+        "materia": "Tópicos de IA",
+        "aula": "EB06",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves",
+          "viernes"
+        ],
+        "inicio": "11:00",
+        "fin": "12:00"
+      },
+      {
+        "materia": "Gestión de Proyectos de Software",
+        "aula": "EB02",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves"
+        ],
+        "inicio": "13:00",
+        "fin": "14:00"
+      },
+      {
+        "materia": "Gestión de Proyectos de Software",
+        "aula": "EB07",
+        "dias": [
+          "viernes"
+        ],
+        "inicio": "13:00",
+        "fin": "15:00"
+      }
+    ]
+  },
+  {
+    "id": "ernesto",
+    "numero_control": "22170569",
+    "nombre": "José Ernesto Ayala Rodríguez",
+    "carrera": "Ingeniería en Sistemas Computacionales",
+    "semestre": 9,
+    "horario": [
+      {
+        "materia": "Sistemas Programables",
+        "aula": "UA08",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves"
+        ],
+        "inicio": "09:00",
+        "fin": "10:00"
+      },
+      {
+        "materia": "Métodos Ágiles",
+        "aula": "UP18",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves"
+        ],
+        "inicio": "11:00",
+        "fin": "12:00"
+      },
+      {
+        "materia": "Gestión de Proyectos de Software",
+        "aula": "EB02",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves"
+        ],
+        "inicio": "13:00",
+        "fin": "14:00"
+      },
+      {
+        "materia": "Arquitectura de Software",
+        "aula": "EB07",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves"
+        ],
+        "inicio": "14:00",
+        "fin": "15:00"
+      },
+      {
+        "materia": "Gestión de Proyectos de Software",
+        "aula": "EB07",
+        "dias": [
+          "viernes"
+        ],
+        "inicio": "13:00",
+        "fin": "15:00"
+      }
+    ]
+  },
+  {
+    "id": "jeylen",
+    "numero_control": "22170657",
+    "nombre": "Jeylen Isai García Félix",
+    "carrera": "Ingeniería en Sistemas Computacionales",
+    "semestre": 9,
+    "horario": [
+      {
+        "materia": "Sistemas Programables",
+        "aula": "UP01",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves"
+        ],
+        "inicio": "08:00",
+        "fin": "09:00"
+      },
+      {
+        "materia": "Tópicos de IA",
+        "aula": "ECC15",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves",
+          "viernes"
+        ],
+        "inicio": "09:00",
+        "fin": "10:00"
+      },
+      {
+        "materia": "Gestión de Operaciones de TI",
+        "aula": "EC03",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves",
+          "viernes"
+        ],
+        "inicio": "11:00",
+        "fin": "12:00"
+      },
+      {
+        "materia": "Inteligencia de Negocios",
+        "aula": "CCCD",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves",
+          "viernes"
+        ],
+        "inicio": "12:00",
+        "fin": "13:00"
+      },
+      {
+        "materia": "Gestión de Proyectos de Software",
+        "aula": "EB02",
+        "dias": [
+          "lunes",
+          "martes",
+          "miercoles",
+          "jueves"
+        ],
+        "inicio": "13:00",
+        "fin": "14:00"
+      },
+      {
+        "materia": "Gestión de Proyectos de Software",
+        "aula": "EB06",
+        "dias": [
+          "viernes"
+        ],
+        "inicio": "13:00",
+        "fin": "15:00"
+      }
+    ]
+  }
+]

@@ -3,6 +3,11 @@
 
 PRAGMA foreign_keys = ON;
 
+DROP TABLE IF EXISTS horario_clase;
+DROP TABLE IF EXISTS usuario;
+DROP TABLE IF EXISTS materia;
+DROP TABLE IF EXISTS alumno;
+
 DROP VIEW  IF EXISTS docente_publico;
 DROP TABLE IF EXISTS horario_atencion;
 DROP TABLE IF EXISTS docente;
@@ -75,3 +80,39 @@ CREATE VIEW docente_publico AS
   SELECT id, nombre, departamento, espacio_id
   FROM docente
   WHERE autorizado = 1;
+
+
+-- Modulo de alumnos y horarios (Ambar simulado).
+
+CREATE TABLE alumno (
+  id TEXT PRIMARY KEY,
+  numero_control TEXT NOT NULL UNIQUE,
+  nombre TEXT NOT NULL,
+  carrera TEXT NOT NULL,
+  semestre INTEGER NOT NULL CHECK (semestre > 0)
+);
+
+CREATE TABLE usuario (
+  id TEXT PRIMARY KEY,
+  alumno_id TEXT NOT NULL UNIQUE REFERENCES alumno(id),
+  nombre_usuario TEXT NOT NULL UNIQUE,
+  password_hash TEXT NOT NULL,
+  activo INTEGER NOT NULL DEFAULT 1 CHECK (activo IN (0, 1))
+);
+
+CREATE TABLE materia (
+  id TEXT PRIMARY KEY,
+  nombre TEXT NOT NULL
+);
+
+CREATE TABLE horario_clase (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  alumno_id TEXT NOT NULL REFERENCES alumno(id),
+  materia_id TEXT NOT NULL REFERENCES materia(id),
+  dia TEXT NOT NULL CHECK (dia IN ('lunes','martes','miercoles','jueves','viernes','sabado')),
+  hora_inicio TEXT NOT NULL,
+  hora_fin TEXT NOT NULL,
+  aula TEXT NOT NULL,
+  CHECK (hora_fin > hora_inicio),
+  UNIQUE (alumno_id, materia_id, dia, hora_inicio)
+);

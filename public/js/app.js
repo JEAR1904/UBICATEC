@@ -1,5 +1,6 @@
 import { api } from './api.js';
 import * as mapa from './mapa.js';
+import { cargarHorario } from './horario.js';
 
 const $ = (sel) => document.querySelector(sel);
 const NOMBRE_CATEGORIA = {
@@ -111,13 +112,24 @@ function conectarEventos() {
     actualizarLugares();
   });
 
-  document.querySelectorAll('.pestana').forEach((boton) =>
+  document.querySelectorAll('.pestana[data-vista]').forEach((boton) =>
     boton.addEventListener('click', () => {
-      document.querySelectorAll('.pestana').forEach((b) => b.classList.toggle('activa', b === boton));
+      document.querySelectorAll('.pestana[data-vista]').forEach((b) => b.classList.toggle('activa', b === boton));
       const vista = boton.dataset.vista;
       $('#vista-lugares').hidden = vista !== 'lugares';
       $('#vista-docentes').hidden = vista !== 'docentes';
-      if (vista === 'docentes') actualizarDocentes();
+      $('.contenido').hidden = vista === 'horario';
+      $('#vista-horario').hidden = vista !== 'horario';
+      $('#ficha').hidden = true;
+
+      if (vista === 'horario') {
+        cargarHorario();
+      } else {
+        window.dispatchEvent(new Event('resize'));
+
+        if (vista === 'docentes') actualizarDocentes();
+        if (vista === 'lugares') actualizarLugares();
+      }
     }),
   );
 
@@ -129,3 +141,61 @@ iniciar().catch((err) => {
   console.error(err);
   document.body.insertAdjacentHTML('afterbegin', '<p style="padding:1rem;color:#b91c1c">No se pudo cargar UbicaTec. ¿Está corriendo el servidor?</p>');
 });
+
+
+// ---------- Cerrar sesion ----------
+document.querySelector('#btn-logout').addEventListener('click', async () => {
+  const boton = document.querySelector('#btn-logout');
+  boton.disabled = true;
+
+  try {
+    const respuesta = await fetch('/api/auth/logout', {
+      method: 'POST',
+      credentials: 'same-origin'
+    });
+
+    if (!respuesta.ok) {
+      throw new Error('No se pudo cerrar la sesión');
+    }
+
+    window.location.replace('/login.html');
+
+  } catch (error) {
+    alert(error.message);
+    boton.disabled = false;
+  }
+});
+
+// ---------- Perfil del alumno ----------
+async function cargarPerfil() {
+  try {
+    const respuesta = await fetch('/api/auth/perfil', {
+      credentials: 'same-origin',
+      cache: 'no-store'
+    });
+
+    if (respuesta.status === 401) {
+      window.location.replace('/login.html');
+      return;
+    }
+
+    if (!respuesta.ok) {
+      throw new Error('No se pudo cargar el perfil');
+    }
+
+    const alumno = await respuesta.json();
+
+    document.querySelector('#nombre-alumno').textContent =
+      alumno.nombre;
+
+    document.querySelector('#control-alumno').textContent =
+      alumno.numero_control;
+
+    document.querySelector('#perfil-usuario').hidden = false;
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+cargarPerfil();

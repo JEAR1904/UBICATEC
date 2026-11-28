@@ -113,3 +113,219 @@ input[type='search'] {
   font-weight: 600;
   color: var(--guinda);
 }
+
+
+/* Perfil del alumno autenticado */
+.marca-usuario {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#perfil-usuario:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba(255,255,255,0.3);
+  padding-left: 20px;
+}
+
+#nombre-alumno {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#control-alumno {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .encabezado {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .marca-usuario {
+    width: 100%;
+  }
+
+  .pestanas {
+    flex-wrap: wrap;
+  }
+
+  #nombre-alumno {
+    font-size: 12px;
+  }
+}
+
+/* Horario academico */
+
+[hidden] {
+  display: none !important;
+}
+
+.horario-contenedor {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 28px;
+  background: #f5f6f8;
+}
+
+.horario-encabezado {
+  margin-bottom: 24px;
+}
+
+.horario-encabezado h2 {
+  margin: 0 0 8px;
+  color: var(--guinda);
+  font-size: 26px;
+}
+
+.horario-encabezado p {
+  margin: 0 0 10px;
+  color: var(--gris);
+}
+
+.horario-etiqueta {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: var(--guinda-claro);
+  color: var(--guinda);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#horario-resumen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.horario-indicador {
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.horario-indicador strong {
+  display: block;
+  font-size: 28px;
+  color: var(--guinda);
+}
+
+.horario-indicador span {
+  font-size: 14px;
+  color: var(--gris);
+}
+
+#horario-tabla {
+  overflow-x: auto;
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+}
+
+.tabla-horario {
+  width: 100%;
+  min-width: 850px;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.tabla-horario th {
+  background: var(--guinda);
+  color: white;
+  padding: 14px 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tabla-horario th:first-child {
+  width: 90px;
+}
+
+.tabla-horario td {
+  height: 72px;
+  padding: 5px;
+  border-bottom: 1px solid var(--borde);
+  border-right: 1px solid var(--borde);
+  vertical-align: top;
+}
+
+.tabla-horario td:last-child {
+  border-right: 0;
+}
+
+.horario-hora {
+  text-align: center;
+  font-size: 13px;
+  color: var(--gris);
+  background: #fafafa;
+  font-weight: 600;
+}
+
+.horario-clase {
+  height: 100%;
+  min-height: 62px;
+  padding: 10px;
+  border-radius: 7px;
+  border-left: 4px solid rgba(0,0,0,0.18);
+  color: #1f2328;
+}
+
+.horario-clase strong {
+  display: block;
+  font-size: 13px;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.horario-clase span {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.horario-clase small {
+  font-size: 11px;
+}
+
+#horario-mensaje {
+  padding: 30px;
+  text-align: center;
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  color: var(--gris);
+}
+
+@media (max-width: 768px) {
+  .horario-contenedor {
+    padding: 14px;
+  }
+
+  .horario-encabezado h2 {
+    font-size: 22px;
+  }
+
+  #horario-resumen {
+    gap: 8px;
+  }
+
+  .horario-indicador {
+    padding: 12px;
+  }
+
+  .horario-indicador strong {
+    font-size: 22px;
+  }
+
+  .horario-indicador span {
+    font-size: 11px;
+  }
+}

@@ -80,3 +80,47 @@ export function buscar(q) {
   );
   return { espacios: lugares, docentes: docentes({ q }) };
 }
+
+
+// Modulo academico: autenticacion y horarios.
+
+export function usuarioPorControl(numeroControl) {
+  return db.prepare(`
+    SELECT id, alumno_id, nombre_usuario, password_hash, activo
+    FROM usuario
+    WHERE nombre_usuario = ?
+  `).get(numeroControl) || null;
+}
+
+export function perfilAlumno(alumnoId) {
+  return db.prepare(`
+    SELECT id, numero_control, nombre, carrera, semestre
+    FROM alumno
+    WHERE id = ?
+  `).get(alumnoId) || null;
+}
+
+export function horarioAlumno(alumnoId) {
+  return db.prepare(`
+    SELECT
+      h.id,
+      m.nombre AS materia,
+      h.dia,
+      h.hora_inicio AS inicio,
+      h.hora_fin AS fin,
+      h.aula
+    FROM horario_clase h
+    JOIN materia m ON m.id = h.materia_id
+    WHERE h.alumno_id = ?
+    ORDER BY
+      CASE h.dia
+        WHEN 'lunes' THEN 1
+        WHEN 'martes' THEN 2
+        WHEN 'miercoles' THEN 3
+        WHEN 'jueves' THEN 4
+        WHEN 'viernes' THEN 5
+        WHEN 'sabado' THEN 6
+      END,
+      h.hora_inicio
+  `).all(alumnoId);
+}

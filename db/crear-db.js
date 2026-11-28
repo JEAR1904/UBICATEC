@@ -1,7 +1,8 @@
 // Crea db/ubicatec.db desde cero: aplica esquema.sql y carga los datos de /datos.
 // Uso: npm run db:crear   (se puede correr las veces que sea, borra y vuelve a crear)
 import Database from 'better-sqlite3';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
+import { randomBytes, scryptSync } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -46,6 +47,77 @@ const cargar = db.transaction(() => {
     docente.run(d.id, d.nombre, d.departamento, d.espacio, d.autorizado ? 1 : 0, d.fechaAutorizacion);
     for (const h of d.horario) horario.run(d.id, h.dia, h.inicio, h.fin);
   }
+
+  // Alumnos y horarios de Ambar simulado.
+  const archivoAlumnos = path.join(datos, 'alumnos.local.json');
+
+  if (existsSync(archivoAlumnos)) {
+    const alumnos = leer('alumnos.local.json');
+
+    const insertarAlumno = db.prepare(`
+      INSERT INTO alumno
+      (id, numero_control, nombre, carrera, semestre)
+      VALUES (?, ?, ?, ?, ?)
+    `);
+
+    const insertarUsuario = db.prepare(`
+      INSERT INTO usuario
+      (id, alumno_id, nombre_usuario, password_hash)
+      VALUES (?, ?, ?, ?)
+    `);
+
+    const insertarMateria = db.prepare(`
+      INSERT OR IGNORE INTO materia (id, nombre)
+      VALUES (?, ?)
+    `);
+
+    const insertarClase = db.prepare(`
+      INSERT INTO horario_clase
+      (alumno_id, materia_id, dia, hora_inicio, hora_fin, aula)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `);
+
+    for (const a of alumnos) {
+      insertarAlumno.run(
+        a.id,
+        a.numero_control,
+        a.nombre,
+        a.carrera,
+        a.semestre
+      );
+
+      const salt = randomBytes(16).toString('hex');
+      const hash = scryptSync('password', salt, 64).toString('hex');
+
+      insertarUsuario.run(
+        'usuario-' + a.id,
+        a.id,
+        a.numero_control,
+        salt + ':' + hash
+      );
+
+      for (const h of a.horario) {
+        const materiaId = h.materia
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-');
+
+        insertarMateria.run(materiaId, h.materia);
+
+        for (const dia of h.dias) {
+          insertarClase.run(
+            a.id,
+            materiaId,
+            dia,
+            h.inicio,
+            h.fin,
+            h.aula
+          );
+        }
+      }
+    }
+  }
 });
 
 cargar();
@@ -53,5 +125,11 @@ const cuenta = (t) => db.prepare(`SELECT COUNT(*) AS n FROM ${t}`).get().n;
 console.log(
   `Base creada: ${cuenta('edificio')} edificios, ${cuenta('espacio')} espacios, ` +
     `${cuenta('ruta')} rutas, ${cuenta('docente')} docentes.`,
+);
+console.log(
+  `Modulo academico: ${cuenta('alumno')} alumnos, ` +
+  `${cuenta('usuario')} usuarios, ` +
+  `${cuenta('materia')} materias y ` +
+  `${cuenta('horario_clase')} clases semanales.`
 );
 db.close();
